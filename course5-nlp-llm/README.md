@@ -1680,6 +1680,76 @@ Where $e_{ij} = a(s_{i-1}, h_j)$ is the alignment score.
 
 > **"Attention Is All You Need"** — The architecture powering everything today.
 
+### 6.0 Complete Transformer Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────┐
+│                           TRANSFORMER ARCHITECTURE                                       │
+│                        ("Attention Is All You Need", 2017)                              │
+├─────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                          │
+│         ENCODER (N× layers)                      DECODER (N× layers)                    │
+│        ┌─────────────────────┐                  ┌─────────────────────┐                 │
+│        │                     │                  │                     │                 │
+│        │  ┌───────────────┐  │                  │  ┌───────────────┐  │   Output        │
+│        │  │  Add & Norm   │  │                  │  │  Add & Norm   │  │  Probabilities  │
+│        │  └───────┬───────┘  │                  │  └───────┬───────┘  │      ↑          │
+│        │          │          │                  │          │          │      │          │
+│   ·····│··········│··········│··················│··········│··········│·· ┌──────┐ ····│
+│   :    │  ┌───────┴───────┐  │                  │  ┌───────┴───────┐  │   │Softmax│    :
+│   :    │  │  Feed Forward │  │                  │  │  Feed Forward │  │   └──┬───┘    :
+│   :    │  └───────┬───────┘  │                  │  └───────┬───────┘  │      │        :
+│   :    │          │          │                  │          │          │   ┌──┴───┐    :
+│   N    │  ┌───────┴───────┐  │                  │  ┌───────┴───────┐  │   │Linear│    :
+│   ×    │  │  Add & Norm   │  │                  │  │  Add & Norm   │  │   └──────┘    :
+│   :    │  └───────┬───────┘  │                  │  └───────┬───────┘  │              :
+│   :    │          │          │                  │          │          │              :
+│   :    │  ┌───────┴───────┐  │    ┌─────────┐   │  ┌───────┴───────┐  │              :
+│   :    │  │  Multi-Head   │  │    │         │   │  │  Multi-Head   │  │              :
+│   :    │  │  Attention    │  │────┤ Cross   ├───│  │  Attention    │  │              :
+│   ·····│··└───────┬───────┘··│····│Attention│···│··└───────┬───────┘··│··············│
+│        │          │          │    │         │   │          │          │              │
+│        │          │          │    └─────────┘   │  ┌───────┴───────┐  │              │
+│        │          │          │                  │  │  Add & Norm   │  │              │
+│        │          │          │                  │  └───────┬───────┘  │              │
+│        │          │          │                  │          │          │              │
+│        │          │          │                  │  ┌───────┴───────┐  │              │
+│        │          │          │                  │  │ Masked Multi- │  │              │
+│        │          │          │                  │  │ Head Attention│  │              │
+│        │          │          │                  │  └───────┬───────┘  │              │
+│        └──────────┼──────────┘                  └──────────┼──────────┘              │
+│                   │                                        │                         │
+│           ┌───────┴───────┐                        ┌───────┴───────┐                 │
+│           │      ⊕        │                        │      ⊕        │                 │
+│           │  (Positional  │                        │  (Positional  │                 │
+│           │   Encoding)   │                        │   Encoding)   │                 │
+│           └───────┬───────┘                        └───────┬───────┘                 │
+│                   │                                        │                         │
+│           ┌───────┴───────┐                        ┌───────┴───────┐                 │
+│           │    Input      │                        │    Output     │                 │
+│           │   Embedding   │                        │   Embedding   │                 │
+│           └───────┬───────┘                        └───────┬───────┘                 │
+│                   │                                        │                         │
+│           ┌───────┴───────┐                        ┌───────┴───────┐                 │
+│           │    Inputs     │                        │    Outputs    │                 │
+│           │               │                        │ (shifted right)│                │
+│           └───────────────┘                        └───────────────┘                 │
+│                                                                                       │
+└─────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Key Components:**
+
+| Component | Description | Purpose |
+|-----------|-------------|---------|
+| **Input Embedding** | Convert tokens to dense vectors | Learnable representation |
+| **Positional Encoding** | Add position information | Sequence order awareness |
+| **Multi-Head Attention** | Parallel attention heads | Multiple relationship types |
+| **Masked Multi-Head Attention** | Causal masking (decoder) | Prevent looking ahead |
+| **Cross-Attention** | Encoder-Decoder connection | Align source and target |
+| **Feed Forward** | Position-wise FFN | Non-linear transformation |
+| **Add & Norm** | Residual + LayerNorm | Training stability |
+
 ### 6.1 Self-Attention Mechanism
 
 ```
