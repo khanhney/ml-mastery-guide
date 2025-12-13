@@ -20,22 +20,22 @@
 A comprehensive, practical roadmap for mastering Machine Learning and Deep Learning. Each course includes mathematical formulas, code examples, and real-world use cases.
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                         ML MASTERY LEARNING PATH                             │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│   Course 1              Course 2              Course 3              Course 4│
-│  ┌──────────┐          ┌──────────┐          ┌──────────┐          ┌──────────┐
-│  │Statistics│    ───►  │   ML     │    ───►  │   ML     │    ───►  │  Deep   │
-│  │Essentials│          │Fundamentals│        │ Advanced │          │Learning │
-│  └──────────┘          └──────────┘          └──────────┘          └──────────┘
-│                                                                              │
-│   - Data Prep           - Linear Reg          - Random Forest       - NN     │
-│   - Feature Eng         - Logistic Reg        - XGBoost/LightGBM    - CNN    │
-│   - Evaluation          - Naive Bayes         - Clustering          - RNN    │
-│   - Best Practices      - SVM, KNN, Trees     - PCA, Stacking       - Transfer│
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│                              ML MASTERY LEARNING PATH                                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                               │
+│   Course 1           Course 2           Course 3           Course 4           Course 5       │
+│  ┌──────────┐       ┌──────────┐       ┌──────────┐       ┌──────────┐       ┌──────────┐    │
+│  │Statistics│  ───► │   ML     │  ───► │   ML     │  ───► │  Deep    │  ───► │  NLP &   │    │
+│  │Essentials│       │Fundamentals      │ Advanced │       │ Learning │       │  LLMs    │    │
+│  └──────────┘       └──────────┘       └──────────┘       └──────────┘       └──────────┘    │
+│                                                                                               │
+│   - Data Prep        - Linear Reg       - Random Forest    - NN              - Tokenization  │
+│   - Feature Eng      - Logistic Reg     - XGBoost/LightGBM - CNN             - Transformers  │
+│   - Evaluation       - Naive Bayes      - Clustering       - RNN/LSTM        - BERT/GPT      │
+│   - Best Practices   - SVM, KNN, Trees  - PCA, Stacking    - Transfer        - RAG/Agents    │
+│                                                                                               │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -108,6 +108,23 @@ A comprehensive, practical roadmap for mastering Machine Learning and Deep Learn
 
 ---
 
+### [Course 5: NLP & Large Language Models](./course5-nlp-llm/README.md)
+
+> **From classical NLP to modern Transformers and LLMs**
+
+| Topic | Techniques | Industry Use Cases |
+|-------|------------|-------------------|
+| **Lexical Processing** | Tokenization, Stemming, TF-IDF | Search engines, Spam filtering |
+| **Syntactic Processing** | POS Tagging, Parsing, NER | Grammar checkers, Information extraction |
+| **Semantic Processing** | Word2Vec, GloVe, FastText | Semantic search, Recommendation |
+| **Transformers** | Self-Attention, Multi-Head Attention | Machine translation, Text generation |
+| **LLMs** | BERT, GPT, LLaMA, Fine-tuning | Chatbots, Code generation, QA systems |
+| **Applications** | RAG, Agents, Prompt Engineering | Enterprise AI, Knowledge assistants |
+
+**Key Skills:** Attention mechanism, Positional encoding, RLHF, LoRA, Prompt engineering
+
+---
+
 ## Quick Reference
 
 ### Algorithm Selection by Problem Type
@@ -136,18 +153,19 @@ A comprehensive, practical roadmap for mastering Machine Learning and Deep Learn
 ## Learning Path
 
 ```
-Phase 1 (Weeks 1-3)          Phase 2 (Weeks 4-6)
-┌────────────────────┐       ┌────────────────────┐
-│ Course 1           │  ───► │ Course 2           │
-│ Data + Evaluation  │       │ Core ML Algorithms │
-└────────────────────┘       └────────────────────┘
-                                      │
-                                      ▼
-Phase 4 (Weeks 10-12+)       Phase 3 (Weeks 7-9)
-┌────────────────────┐       ┌────────────────────┐
-│ Course 4           │  ◄─── │ Course 3           │
-│ Deep Learning      │       │ Ensemble + MLOps   │
-└────────────────────┘       └────────────────────┘
+Phase 1                  Phase 2                  Phase 3
+┌────────────────────┐   ┌────────────────────┐   ┌────────────────────┐
+│ Course 1           │──►│ Course 2           │──►│ Course 3           │
+│ Data + Evaluation  │   │ Core ML Algorithms │   │ Ensemble + MLOps   │
+└────────────────────┘   └────────────────────┘   └────────────────────┘
+                                                           │
+                         ┌─────────────────────────────────┘
+                         ▼
+Phase 4                  Phase 5
+┌────────────────────┐   ┌────────────────────┐
+│ Course 4           │──►│ Course 5           │
+│ Deep Learning      │   │ NLP & LLMs         │
+└────────────────────┘   └────────────────────┘
 ```
 
 ---
@@ -160,6 +178,7 @@ Phase 4 (Weeks 10-12+)       Phase 3 (Weeks 7-9)
 | **Course 2** | Course 1 + Basic statistics |
 | **Course 3** | Course 2 + Scikit-learn |
 | **Course 4** | Course 3 + Linear algebra basics |
+| **Course 5** | Course 4 + PyTorch/TensorFlow basics |
 
 ---
 
@@ -171,8 +190,10 @@ Phase 4 (Weeks 10-12+)       Phase 3 (Weeks 7-9)
 | Classical ML | Scikit-learn |
 | Gradient Boosting | XGBoost, LightGBM, CatBoost |
 | Deep Learning | TensorFlow/Keras, PyTorch |
+| NLP | Hugging Face Transformers, spaCy, NLTK |
+| LLM Development | LangChain, LlamaIndex, OpenAI API |
 | Experiment Tracking | MLflow, Weights & Biases |
-| Model Serving | FastAPI, BentoML |
+| Model Serving | FastAPI, BentoML, vLLM |
 
 ---
 
@@ -184,6 +205,7 @@ Phase 4 (Weeks 10-12+)       Phase 3 (Weeks 7-9)
 | Course 2 | Classification pipeline | Titanic, Iris |
 | Course 3 | Ensemble + Hyperparameter tuning | Customer Churn |
 | Course 4 | Image classification | CIFAR-10, ChestX-ray |
+| Course 5 | Text classification + Chatbot | IMDB, Custom QA |
 
 ---
 
@@ -198,8 +220,10 @@ ml-mastery-guide/
 │   └── README.md                      # Linear, Logistic, NB, SVM, KNN, Trees
 ├── course3-ml-advanced/
 │   └── README.md                      # RF, XGBoost, Clustering, PCA, MLOps
-└── course4-deep-learning/
-    └── README.md                      # NN, CNN, RNN, Transfer Learning
+├── course4-deep-learning/
+│   └── README.md                      # NN, CNN, RNN, Transfer Learning
+└── course5-nlp-llm/
+    └── README.md                      # NLP, Transformers, LLMs, RAG, Agents
 ```
 
 ---
